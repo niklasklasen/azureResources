@@ -1,12 +1,17 @@
 using 'main.bicep'
 
+param parEnvironmentName = 'p'
+param parSolution = 'patchmgmt'
 param parLocation = 'swedencentral'
+param parRegionShortName = 'sec'
 param parTags = {
     environment: 'production'
 }
 
 param parMaintenanceConfigurations = {
     maintenanceConfigurationDailyDefinitions: {
+        maintenanceConfigurationSuffix: 'dailyDefinitions'
+        dynamicScopeSuffix: 'all-europe'
         inGuestPatchMode: 'user'
         linuxClassificationsToInclude: null
         linuxPackageNameMasksToExclude: null
@@ -24,16 +29,16 @@ param parMaintenanceConfigurations = {
         maintenanceWindowRecurEvery: '1Day'
         maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
         maintenanceWindowTimeZone: 'W. Europe Standard Time'
-        parFilterLocations: [
+        filterLocations: [
             'westeurope'
             'swedencentral'
         ]
-        parFilterOsTypes: [
+        filterOsTypes: [
             'Windows'
             'Linux'
         ]
-        parFilterResourceGroups: []
-        parFilterResourceTypes: [
+        filterResourceGroups: []
+        filterResourceTypes: [
             'microsoft.compute/virtualmachines'
             'microsoft.hybridcompute/machines'
         ]
