@@ -11,7 +11,7 @@ var varResourceGroupName = '${parEnvironmentName}-${parSolution}-${parRegionShor
 var varMaintenanceConfigurationNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}'
 
 module modResourceGroup '../modules/resourceGroup/resourceGroup.bicep' = {
-  name: 'ResourceGroupDeployment'
+  name: varResourceGroupName
   params: {
     parResourceGroupLocation: parLocation
     parResourceGroupName: varResourceGroupName

@@ -3,7 +3,7 @@ param parLocation string
 param parFilterLocations array
 param parFilterOsTypes array
 param parFilterResourceGroups array
-param parFilterResourceTypes array // Allowed 'microsoft.hybridcompute/machines' + AzureVM
+param parFilterResourceTypes array
 param parMaintenanceConfigurationId string
 param parFilterTagOperator string
 param parFilterTags object

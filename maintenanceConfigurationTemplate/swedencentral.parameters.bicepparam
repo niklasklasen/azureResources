@@ -13,19 +13,19 @@ param parMaintenanceConfigurations = {
         maintenanceConfigurationSuffix: 'dailyDefinitions'
         dynamicScopeSuffix: 'all-europe'
         inGuestPatchMode: 'user'
-        linuxClassificationsToInclude: null
-        linuxPackageNameMasksToExclude: null
-        linuxPackageNameMasksToInclude: null
+        linuxClassificationsToInclude: []
+        linuxPackageNameMasksToExclude: []
+        linuxPackageNameMasksToInclude: []
         windowsClassificationsToInclude:[
             'Definition'
         ]
         windowsExcludeKbsRequiringReboot: false
-        windowsKbNumbersToExclude: null
-        windowsKbNumbersToInclude: null
+        windowsKbNumbersToExclude: []
+        windowsKbNumbersToInclude: []
         rebootSetting: 'IfRequired'
         maintenanceScope: 'InGuestPatch'
         maintenanceWindowDuration: '02:00'
-        maintenanceWindowExpirationDateTime: null
+        maintenanceWindowExpirationDateTime: ''
         maintenanceWindowRecurEvery: '1Day'
         maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
         maintenanceWindowTimeZone: 'W. Europe Standard Time'
@@ -42,7 +42,7 @@ param parMaintenanceConfigurations = {
             'microsoft.compute/virtualmachines'
             'microsoft.hybridcompute/machines'
         ]
-        filterTagOperator: null
-        filterTags: null
+        filterTagOperator: 'Any'
+        filterTags: {}
     }
 }
