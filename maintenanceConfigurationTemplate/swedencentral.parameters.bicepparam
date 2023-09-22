@@ -8,15 +8,26 @@ param parTags = {
 param parMaintenanceConfigurations = {
     maintenanceConfigurationDailyDefinitions: {
         inGuestPatchMode: 'user'
-        linuxClassificationsToInclude
+        linuxClassificationsToInclude: null
         linuxPackageNameMasksToExclude: null
         linuxPackageNameMasksToInclude: null
-        windowsClassificationsToInclude: 
-        windowsExcludeKbsRequiringReboot: 
+        windowsClassificationsToInclude:[
+            'Definition'
+        ]
+        windowsExcludeKbsRequiringReboot: false
         windowsKbNumbersToExclude: null
         windowsKbNumbersToInclude: null
-        rebootSetting:
+        rebootSetting: 'IfRequired'
         maintenanceScope: 'InGuestPatch'
+        maintenanceWindowDuration: '02:00'
+        maintenanceWindowExpirationDateTime: null
+        maintenanceWindowRecurEvery: '1Day'
+        maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
+        maintenanceWindowTimeZone: 'W. Europe Standard Time'
+        parFilterLocations: 
+        parFilterOsTypes: 
+        parFilterResourceGroups: 
+        parFilterResourceTypes: 
     }
 }
 
@@ -25,15 +36,7 @@ parDynamicScopeName:
     parFilterOsTypes: 
     parFilterResourceGroups: 
     parFilterResourceTypes: 
-    parMaintenanceWindowDuration: 
-    parMaintenanceWindowExpirationDateTime: 
-    parMaintenanceWindowRecurEvery: 
-    parMaintenanceWindowStartDateTime: 
-    parMaintenanceWindowTimeZone: 
-    parWindowsClassificationsToInclude: 
-    parWindowsExcludeKbsRequiringReboot: 
-    parWindowsKbNumbersToExclude: 
-    parWindowsKbNumbersToInclude: 
+
 
 param resourceGroups = {
     resourceGroup1: {
