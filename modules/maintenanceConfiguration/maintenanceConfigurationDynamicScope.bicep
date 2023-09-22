@@ -1,16 +1,16 @@
 param parMaintenanceConfigurationName string
 param parLocation string
 param parTags object
-param parInGuestPatchMode string //Deafult 'user'
+param parInGuestPatchMode string
 param parLinuxClassificationsToInclude array
-param parLinuxPackageNameMasksToExclude array // Default null
-param parLinuxPackageNameMasksToInclude array // Default null
+param parLinuxPackageNameMasksToExclude array
+param parLinuxPackageNameMasksToInclude array
 param parWindowsClassificationsToInclude array
 param parWindowsExcludeKbsRequiringReboot bool
-param parWindowsKbNumbersToExclude array // Default null
-param parWindowsKbNumbersToInclude array //Default null
+param parWindowsKbNumbersToExclude array
+param parWindowsKbNumbersToInclude array
 param parRebootSetting string
-param parMaintenanceScope string // Default 'InGuestPatch'
+param parMaintenanceScope string 
 param parMaintenanceWindowDuration string
 param parMaintenanceWindowExpirationDateTime string // Default null
 param parMaintenanceWindowRecurEvery string
@@ -58,7 +58,7 @@ resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigura
 }
 
 module modDynamicScope '../dynamicScope/dynamicScope.bicep' = {
-  name: 
+  name: 'DynamicScopeDeployment'
   params: {
     parDynamicScopeName: parDynamicScopeName
     parFilterLocations: parFilterLocations
