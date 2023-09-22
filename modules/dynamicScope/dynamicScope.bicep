@@ -5,6 +5,8 @@ param parFilterOsTypes array
 param parFilterResourceGroups array
 param parFilterResourceTypes array // Allowed 'microsoft.hybridcompute/machines' + AzureVM
 param parMaintenanceConfigurationId string
+param parFilterTagOperator string
+param parFilterTags object
 
 resource resDynamicScope 'Microsoft.Maintenance/configurationAssignments@2023-04-01' = {
   name: parDynamicScopeName
@@ -15,6 +17,10 @@ resource resDynamicScope 'Microsoft.Maintenance/configurationAssignments@2023-04
       osTypes: parFilterOsTypes
       resourceGroups: parFilterResourceGroups
       resourceTypes: parFilterResourceTypes
+      tagSettings: {
+        filterOperator: parFilterTagOperator
+        tags: parFilterTags
+      }
     }
     maintenanceConfigurationId: parMaintenanceConfigurationId
   }

@@ -18,7 +18,7 @@ module modResourceGroup '../modules/resourceGroup/resourceGroup.bicep' = {
     parResourceGroupName: parResourceGroupName
     parResourceGroupTags: parTags
   }
-}]
+}
 
 module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintenanceConfigurationDynamicScope.bicep' = [for maintConfig in items(parMaintenanceConfigurations): {
   scope: modResourceGroup.name
@@ -47,14 +47,7 @@ module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintena
     parWindowsExcludeKbsRequiringReboot: 
     parWindowsKbNumbersToExclude: 
     parWindowsKbNumbersToInclude: 
-  }
-}
-
-module modResourceGroup '../modules/resourceGroup/resourceGroup.bicep' = [for rg in items(resourceGroups): {
-  name: rg.value.rgName
-  params: {
-    parResourceGroupLocation: parLocation
-    parResourceGroupName: rg.value.rgName
-    parResourceGroupTags: {}
+    parFilterTagOperator:
+    parFilterTags:
   }
 }]

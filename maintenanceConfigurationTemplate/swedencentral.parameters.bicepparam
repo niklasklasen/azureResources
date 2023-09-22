@@ -24,25 +24,20 @@ param parMaintenanceConfigurations = {
         maintenanceWindowRecurEvery: '1Day'
         maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
         maintenanceWindowTimeZone: 'W. Europe Standard Time'
-        parFilterLocations: 
-        parFilterOsTypes: 
-        parFilterResourceGroups: 
-        parFilterResourceTypes: 
+        parFilterLocations: [
+            'westeurope'
+            'swedencentral'
+        ]
+        parFilterOsTypes: [
+            'Windows'
+            'Linux'
+        ]
+        parFilterResourceGroups: []
+        parFilterResourceTypes: [
+            'microsoft.compute/virtualmachines'
+            'microsoft.hybridcompute/machines'
+        ]
+        filterTagOperator: null
+        filterTags: null
     }
-}
-
-parDynamicScopeName: 
-    parFilterLocations: 
-    parFilterOsTypes: 
-    parFilterResourceGroups: 
-    parFilterResourceTypes: 
-
-
-param resourceGroups = {
-    resourceGroup1: {
-        rgName : 'demoRG-1'
-  }
-    resourceGroup2: {
-        rgName : 'demoRG-2'
-  }
 }

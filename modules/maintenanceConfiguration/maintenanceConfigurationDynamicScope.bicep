@@ -21,6 +21,8 @@ param parFilterLocations array
 param parFilterOsTypes array
 param parFilterResourceGroups array
 param parFilterResourceTypes array // Allowed 'microsoft.hybridcompute/machines' + AzureVM
+param parFilterTagOperator string
+param parFilterTags object
 
 resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigurations@2023-04-01' = {
   name: parMaintenanceConfigurationName
@@ -67,6 +69,8 @@ module modDynamicScope '../dynamicScope/dynamicScope.bicep' = {
     parFilterResourceTypes: parFilterResourceTypes
     parLocation: parLocation
     parMaintenanceConfigurationId: resMaintenanceConfiguration.id
+    parFilterTagOperator: parFilterTagOperator
+    parFilterTags: parFilterTags
   }
 }
 
