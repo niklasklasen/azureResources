@@ -1,3 +1,4 @@
+param parMaintenanceConfigurationName string
 param parlocation string
 param parTags object
 param parInGuestPatchMode string //Deafult 'user'
@@ -10,12 +11,14 @@ param parWindowsKbNumbersToExclude array // Default null
 param parWindowsKbNumbersToInclude array //Default null
 param parRebootSetting string
 param parMaintenanceScope string // Default 'InGuestPatch'
-
-
-var varMaintenanceConfigurationName = 
+param parMaintenanceWindowDuration string
+param parMaintenanceWindowExpirationDateTime string // Default null
+param parMaintenanceWindowRecurEvery string
+param parMaintenanceWindowStartDateTime string // Build variable in Main so only the Time is needed in Param file.
+param parMaintenanceWindowTimeZone string
 
 resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigurations@2023-04-01' = {
-  name: varMaintenanceConfigurationName
+  name: parMaintenanceConfigurationName
   location: parlocation
   tags: parTags
   properties: {
@@ -38,11 +41,11 @@ resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigura
     }
     maintenanceScope: parMaintenanceScope
     maintenanceWindow: {
-      duration: '02:00'
-      expirationDateTime: null
-      recurEvery: '1Month Second Tuesday Offset1'
-      startDateTime: '2020-09-18 10:00'
-      timeZone: 'W. Europe Standard Time'
+      duration: parMaintenanceWindowDuration
+      expirationDateTime: parMaintenanceWindowExpirationDateTime
+      recurEvery: parMaintenanceWindowRecurEvery
+      startDateTime: parMaintenanceWindowStartDateTime
+      timeZone: parMaintenanceWindowTimeZone
     }
     namespace: null
     visibility: 'custom'
