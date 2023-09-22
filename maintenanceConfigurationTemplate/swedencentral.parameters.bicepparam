@@ -11,7 +11,7 @@ param parTags = {
 param parMaintenanceConfigurations = {
     maintenanceConfigurationDailyDefinitions: {
         maintenanceConfigurationSuffix: 'dailyDefinitions'
-        dynamicScopeSuffix: 'all-europe'
+        dynamicScopeSuffix: 'dailyDefinitions'
         inGuestPatchMode: 'user'
         linuxClassificationsToInclude: []
         linuxPackageNameMasksToExclude: []
@@ -47,7 +47,7 @@ param parMaintenanceConfigurations = {
     }
     maintenanceConfigurationWeeklySecurityCritical: {
         maintenanceConfigurationSuffix: 'monthlySecurityCritical'
-        dynamicScopeSuffix: 'all-europe'
+        dynamicScopeSuffix: 'monthlySecurityCritical'
         inGuestPatchMode: 'user'
         linuxClassificationsToInclude: [
             'Security'

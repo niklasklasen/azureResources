@@ -8,7 +8,8 @@ param parTags object
 param parMaintenanceConfigurations object
 
 var varResourceGroupName = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-rg'
-var varMaintenanceConfigurationNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}'
+var varMaintenanceConfigurationNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-mc'
+var varDynamicScopeNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-ds'
 
 module modResourceGroup '../modules/resourceGroup/resourceGroup.bicep' = {
   name: varResourceGroupName
@@ -23,7 +24,7 @@ module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintena
   scope: resourceGroup(modResourceGroup.name)
   name: '${varMaintenanceConfigurationNamePrefix}-${maintConfig.value.maintenanceConfigurationSuffix}-Deployment'
   params: {
-    parDynamicScopeName: maintConfig.value.dynamicScopeSuffix
+    parDynamicScopeName: '${varDynamicScopeNamePrefix}-${maintConfig.value.dynamicScopeSuffix}'
     parFilterLocations: maintConfig.value.filterLocations
     parFilterOsTypes: maintConfig.value.filterOsTypes
     parFilterResourceGroups: maintConfig.value.filterResourceGroups
