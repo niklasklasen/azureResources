@@ -1,5 +1,5 @@
 param parMaintenanceConfigurationName string
-param parlocation string
+param parLocation string
 param parTags object
 param parInGuestPatchMode string //Deafult 'user'
 param parLinuxClassificationsToInclude array
@@ -19,7 +19,7 @@ param parMaintenanceWindowTimeZone string
 
 resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigurations@2023-04-01' = {
   name: parMaintenanceConfigurationName
-  location: parlocation
+  location: parLocation
   tags: parTags
   properties: {
     extensionProperties: {
@@ -51,3 +51,5 @@ resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigura
     visibility: 'custom'
   }
 }
+
+output outMaintenanceConfigurationId string = resMaintenanceConfiguration.id
