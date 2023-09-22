@@ -1,12 +1,12 @@
 targetScope = 'subscription'
 
-param resourceGroupName string
-param resourceGroupLocation string
-param resourceGroupTags object
+param parResourceGroupName string
+param parResourceGroupLocation string
+param parResourceGroupTags object
 
 resource resResourceGroup 'Microsoft.Resources/resourceGroups@2022-09-01' = {
-  name: resourceGroupName
-  location: resourceGroupLocation
-  tags: resourceGroupTags
+  name: parResourceGroupName
+  location: parResourceGroupLocation
+  tags: parResourceGroupTags
   properties: {}
 }
