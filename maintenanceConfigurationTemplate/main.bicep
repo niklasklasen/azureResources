@@ -26,7 +26,7 @@ module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintena
     parDynamicScopeName: maintConfig.value.dynamicScopeSuffix
     parFilterLocations: maintConfig.value.filterLocations
     parFilterOsTypes: maintConfig.value.filterOsTypes
-    parFilterResourceGroups: maintConfig.value.fileterResourceGroups
+    parFilterResourceGroups: maintConfig.value.filterResourceGroups
     parFilterResourceTypes: maintConfig.value.filterResourceTypes
     parInGuestPatchMode: maintConfig.value.inGuestPatchMode
     parLinuxClassificationsToInclude: maintConfig.value.linuxClassificationsToInclude
