@@ -22,11 +22,51 @@ param parMaintenanceConfigurations = {
         windowsExcludeKbsRequiringReboot: false
         windowsKbNumbersToExclude: []
         windowsKbNumbersToInclude: []
-        rebootSetting: 'IfRequired'
+        rebootSetting: 'Never'
         maintenanceScope: 'InGuestPatch'
         maintenanceWindowDuration: '02:00'
         maintenanceWindowExpirationDateTime: ''
         maintenanceWindowRecurEvery: '1Day'
+        maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
+        maintenanceWindowTimeZone: 'W. Europe Standard Time'
+        filterLocations: [
+            'westeurope'
+            'swedencentral'
+        ]
+        filterOsTypes: [
+            'Windows'
+            'Linux'
+        ]
+        filterResourceGroups: []
+        filterResourceTypes: [
+            'microsoft.compute/virtualmachines'
+            'microsoft.hybridcompute/machines'
+        ]
+        filterTagOperator: 'Any'
+        filterTags: {}
+    }
+    maintenanceConfigurationWeeklySecurityCritical: {
+        maintenanceConfigurationSuffix: 'monthlySecurityCritical'
+        dynamicScopeSuffix: 'all-europe'
+        inGuestPatchMode: 'user'
+        linuxClassificationsToInclude: [
+            'Security'
+            'Critical'
+        ]
+        linuxPackageNameMasksToExclude: []
+        linuxPackageNameMasksToInclude: []
+        windowsClassificationsToInclude:[
+            'Security'
+            'Critical'
+        ]
+        windowsExcludeKbsRequiringReboot: false
+        windowsKbNumbersToExclude: []
+        windowsKbNumbersToInclude: []
+        rebootSetting: 'IfRequired'
+        maintenanceScope: 'InGuestPatch'
+        maintenanceWindowDuration: '02:00'
+        maintenanceWindowExpirationDateTime: ''
+        maintenanceWindowRecurEvery: '1Month Second Tuesday Offset1'
         maintenanceWindowStartDateTime: '2020-01-01 03:00' // Build variable in Main so only the Time is needed in Param file.
         maintenanceWindowTimeZone: 'W. Europe Standard Time'
         filterLocations: [
