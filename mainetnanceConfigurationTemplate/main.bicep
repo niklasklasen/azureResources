@@ -1,5 +1,6 @@
 targetScope = 'subscription'
 
+// Parameters
 param parEnvironmentName string
 param parSolution string
 param parLocation string
@@ -7,6 +8,7 @@ param parRegionShortName  string
 param parTags object
 param parMaintenanceConfigurations object
 
+// Variables
 var varResourceGroupName = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-rg'
 var varMaintenanceConfigurationNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-mc'
 
@@ -19,6 +21,7 @@ module modMaintenanceConfigurationResourceGroup '../_modules/resourceGroup/resou
   }
 }
 
+// Resources & Modules
 module modMaintenanceConfiguration '../_modules/maintenanceConfiguration/maintenanceConfiguration.bicep' = [for maintConfig in items(parMaintenanceConfigurations): {
   scope: resourceGroup(varResourceGroupName)
   name: '${varMaintenanceConfigurationNamePrefix}-${maintConfig.value.maintenanceConfigurationSuffix}-Deployment'
