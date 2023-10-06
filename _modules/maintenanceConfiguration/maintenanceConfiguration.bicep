@@ -1,22 +1,24 @@
+// Parameters
 param parMaintenanceConfigurationName string
 param parLocation string
 param parTags object
-param parInGuestPatchMode string //Deafult 'user'
+param parInGuestPatchMode string = 'user'
 param parLinuxClassificationsToInclude array
-param parLinuxPackageNameMasksToExclude array // Default null
-param parLinuxPackageNameMasksToInclude array // Default null
+param parLinuxPackageNameMasksToExclude array = []
+param parLinuxPackageNameMasksToInclude array = []
 param parWindowsClassificationsToInclude array
 param parWindowsExcludeKbsRequiringReboot bool
-param parWindowsKbNumbersToExclude array // Default null
-param parWindowsKbNumbersToInclude array //Default null
+param parWindowsKbNumbersToExclude array = []
+param parWindowsKbNumbersToInclude array = []
 param parRebootSetting string
-param parMaintenanceScope string // Default 'InGuestPatch'
+param parMaintenanceScope string = 'InGuestPatch'
 param parMaintenanceWindowDuration string
-param parMaintenanceWindowExpirationDateTime string // Default null
+param parMaintenanceWindowExpirationDateTime string = ''
 param parMaintenanceWindowRecurEvery string
-param parMaintenanceWindowStartDateTime string // Build variable in Main so only the Time is needed in Param file.
+param parMaintenanceWindowStartDateTime string
 param parMaintenanceWindowTimeZone string
 
+// Resources
 resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigurations@2023-04-01' = {
   name: parMaintenanceConfigurationName
   location: parLocation
@@ -52,4 +54,6 @@ resource resMaintenanceConfiguration 'Microsoft.Maintenance/maintenanceConfigura
   }
 }
 
+// Output
+output outMaintenanceConfigurationNamr string = resMaintenanceConfiguration.name
 output outMaintenanceConfigurationId string = resMaintenanceConfiguration.id

@@ -10,28 +10,26 @@ param parMaintenanceConfigurations object
 var varResourceGroupName = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-rg'
 var varMaintenanceConfigurationNamePrefix = '${parEnvironmentName}-${parSolution}-${parRegionShortName}-mc'
 
-module modResourceGroup '../modules/resourceGroup/resourceGroup.bicep' = {
-  name: varResourceGroupName
+module modMaintenanceConfigurationResourceGroup '../_modules/resourceGroup/resourceGroup.bicep' = {
+  name: '${varResourceGroupName}-Deployment'
   params: {
-    parResourceGroupLocation: parLocation
+    parLocation: parLocation
     parResourceGroupName: varResourceGroupName
-    parResourceGroupTags: parTags
+    parTags: parTags
   }
 }
 
-module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintenanceConfiguration.bicep' = [for maintConfig in items(parMaintenanceConfigurations): {
-  scope: resourceGroup(modResourceGroup.name)
+module modMaintenanceConfiguration '../_modules/maintenanceConfiguration/maintenanceConfiguration.bicep' = [for maintConfig in items(parMaintenanceConfigurations): {
+  scope: resourceGroup(varResourceGroupName)
   name: '${varMaintenanceConfigurationNamePrefix}-${maintConfig.value.maintenanceConfigurationSuffix}-Deployment'
+  dependsOn: [
+    modMaintenanceConfigurationResourceGroup
+  ]
   params: {
-    parInGuestPatchMode: maintConfig.value.inGuestPatchMode
     parLinuxClassificationsToInclude: maintConfig.value.linuxClassificationsToInclude
-    parLinuxPackageNameMasksToExclude: maintConfig.value.linuxPackageNameMasksToExclude
-    parLinuxPackageNameMasksToInclude: maintConfig.value.linuxPackageNameMasksToInclude
     parLocation: parLocation
     parMaintenanceConfigurationName: '${varMaintenanceConfigurationNamePrefix}-${maintConfig.value.maintenanceConfigurationSuffix}'
-    parMaintenanceScope: maintConfig.value.maintenanceScope
     parMaintenanceWindowDuration: maintConfig.value.maintenanceWindowDuration
-    parMaintenanceWindowExpirationDateTime: maintConfig.value.maintenanceWindowExpirationDateTime
     parMaintenanceWindowRecurEvery: maintConfig.value.maintenanceWindowRecurEvery
     parMaintenanceWindowStartDateTime: maintConfig.value.maintenanceWindowStartDateTime
     parMaintenanceWindowTimeZone: maintConfig.value.maintenanceWindowTimeZone
@@ -39,7 +37,5 @@ module modMaintenanceConfiguration '../modules/maintenanceConfiguration/maintena
     parTags: parTags
     parWindowsClassificationsToInclude: maintConfig.value.windowsClassificationsToInclude
     parWindowsExcludeKbsRequiringReboot: maintConfig.value.windowsExcludeKbsRequiringReboot
-    parWindowsKbNumbersToExclude: maintConfig.value.windowsKbNumbersToExclude
-    parWindowsKbNumbersToInclude: maintConfig.value.windowsKbNumbersToInclude
   }
 }]
