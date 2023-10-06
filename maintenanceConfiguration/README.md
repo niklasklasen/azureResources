@@ -1,7 +1,8 @@
-# Deployment Command
+# Maintenance Configurations Deployment
+## Deployment Command
 New-AzSubscriptionDeployment -Name 'MaintConfigTest' -Location 'swedencentral' -TemplateFile .\maintenanceConfiguration\main.bicep -TemplateParameterFile .\maintenanceConfiguration\param.swedencentral.bicepparam
 
-# Description
+## Description
 Will deploy the following: 
 - Maintenance Configuration for Daily Definition updates
 - Maintenance Configuration for Monthly Security & Critical Updates (based on Microsoft's 'Patch Tuesday')
