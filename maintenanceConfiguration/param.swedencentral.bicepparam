@@ -41,7 +41,7 @@ param parMaintenanceConfigurations = {
         maintenanceWindowDuration: '02:00'
         maintenanceWindowRecurEvery: '1Month Second Tuesday Offset1'
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
-        maintenanceWindowTimeZone: 'varTimeZone'
+        maintenanceWindowTimeZone: varTimeZone
     }
     maintenanceConfigurationMonthlyPilot: {
         maintenanceConfigurationSuffix: 'monthlyPilot'
@@ -65,7 +65,7 @@ param parMaintenanceConfigurations = {
         maintenanceWindowDuration: '02:00'
         maintenanceWindowRecurEvery: '1Month Second Friday'
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
-        maintenanceWindowTimeZone: 'varTimeZone'
+        maintenanceWindowTimeZone: varTimeZone
     }
     maintenanceConfigurationMonthlyWaveOne: {
         maintenanceConfigurationSuffix: 'monthlyWaveOne'
@@ -89,7 +89,7 @@ param parMaintenanceConfigurations = {
         maintenanceWindowDuration: '02:00'
         maintenanceWindowRecurEvery: '1Month Third Friday'
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
-        maintenanceWindowTimeZone: 'varTimeZone'
+        maintenanceWindowTimeZone: varTimeZone
     }
     maintenanceConfigurationMonthlyWaveOTwo: {
         maintenanceConfigurationSuffix: 'monthlyWaveTwo'
@@ -113,6 +113,6 @@ param parMaintenanceConfigurations = {
         maintenanceWindowDuration: '02:00'
         maintenanceWindowRecurEvery: '1Month Fourth Friday'
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
-        maintenanceWindowTimeZone: 'varTimeZone'
+        maintenanceWindowTimeZone: varTimeZone
     }
 }
