@@ -91,7 +91,7 @@ param parMaintenanceConfigurations = {
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
         maintenanceWindowTimeZone: varTimeZone
     }
-    maintenanceConfigurationMonthlyWaveOTwo: {
+    maintenanceConfigurationMonthlyWaveTwo: {
         maintenanceConfigurationSuffix: 'monthlyWaveTwo'
         linuxClassificationsToInclude: [
             'Security'
