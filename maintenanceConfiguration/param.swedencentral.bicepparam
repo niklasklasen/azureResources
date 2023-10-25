@@ -22,7 +22,7 @@ param parMaintenanceConfigurations = {
         windowsExcludeKbsRequiringReboot: false
         rebootSetting: 'Never'
         maintenanceWindowDuration: '02:00'
-        maintenanceWindowRecurEvery: '1Day'
+        maintenanceWindowRecurEvery: '6Hour'
         maintenanceWindowStartDateTime: '${varDefaultStartDate} 03:00'
         maintenanceWindowTimeZone: varTimeZone
     }
