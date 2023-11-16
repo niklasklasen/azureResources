@@ -1,0 +1,87 @@
+{
+    "name": "Deploy-PeriodicAssessment",
+    "type": "Microsoft.Authorization/policySetDefinitions",
+    "apiVersion": "2021-06-01",
+    "scope": null,
+    "properties": {
+      "policyType": "Custom",
+      "displayName": "Enable periodic assessment for all servers",
+      "description": "Enables periodic update assessment on all type of machines that are represented in Azure.",
+      "metadata": {
+        "version": "1.0.0",
+        "category": "Azure Update Manager",
+        "alzCloudEnvironments": [
+          "AzureCloud"
+        ]
+        },
+        "parameters": {
+            "osTypeWindows": {
+                "type": "String",
+                "metadata": {
+                  "displayName": "OS type",
+                  "description": "OS type for the machines."
+                },
+                "allowedValues": [
+                  "Windows",
+                  "Linux"
+                ],
+                "defaultValue": "Windows"
+            },
+            "osTypeLinux": {
+              "type": "String",
+              "metadata": {
+                "displayName": "OS type",
+                "description": "OS type for the machines."
+              },
+              "allowedValues": [
+                "Windows",
+                "Linux"
+              ],
+              "defaultValue": "Linux"
+          }
+        },
+      "policyDefinitions": [
+        {
+          "policyDefinitionReferenceId": "AssessmentWindowsArc",
+          "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bfea026e-043f-4ff4-9d1b-bf301ca7ff46",
+          "parameters": {
+            "osType": {
+                "value": "[[parameters('osTypeWindows')]"
+            }
+          },
+          "groupNames": []
+        },
+        {
+            "policyDefinitionReferenceId": "AssessmentLinuxArc",
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/bfea026e-043f-4ff4-9d1b-bf301ca7ff46",
+            "parameters": {
+                "osType": {
+                    "value": "[[parameters('osTypeLinux')]"
+                }
+            },
+            "groupNames": []
+        },
+        {
+            "policyDefinitionReferenceId": "AssessmentWindowsVM",
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59efceea-0c96-497e-a4a1-4eb2290dac15",
+            "parameters": {
+              "osType": {
+                  "value": "[[parameters('osTypeWindows')]"
+              }
+            },
+            "groupNames": []
+          },
+          {
+            "policyDefinitionReferenceId": "AssessmentLinuxVM",
+            "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/59efceea-0c96-497e-a4a1-4eb2290dac15",
+            "parameters": {
+              "osType": {
+                  "value": "[[parameters('osTypeLinux')]"
+              }
+            },
+            "groupNames": []
+          }
+      ],
+    "policyDefinitionGroups": []
+    }
+}

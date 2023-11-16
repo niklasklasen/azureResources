@@ -1,0 +1,30 @@
+{
+    "AssessmentWindowsArc": {
+        "parameters": {
+            "osType": {
+                "value": "[[parameters('osTypeWindows')]"
+            }
+        }
+    },
+    "AssessmentLinuxArc": {
+        "parameters": {
+            "osType": {
+                "value": "[[parameters('osTypeLinux')]"
+            }
+        }
+    },
+    "AssessmentWindowsVM": {
+        "parameters": {
+            "osType": {
+                "value": "[[parameters('osTypeWindows')]"
+            }
+        }
+    },
+    "AssessmentLinuxVM": {
+        "parameters": {
+            "osType": {
+                "value": "[[parameters('osTypeLinux')]"
+            }
+        }
+    }
+}
