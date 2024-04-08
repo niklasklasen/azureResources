@@ -56,7 +56,7 @@ resource resBlobService 'Microsoft.Storage/storageAccounts/blobServices@2023-01-
   }
 }
 
-resource symbolicname 'Microsoft.Storage/storageAccounts/managementPolicies@2023-01-01' = if (parDeployLifeCycleManagement) {
+resource resLifeCycleManagement 'Microsoft.Storage/storageAccounts/managementPolicies@2023-01-01' = if (parDeployLifeCycleManagement) {
   name: 'default'
   parent: resStorageAccount
   properties: {
