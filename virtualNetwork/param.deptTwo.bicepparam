@@ -1,19 +1,19 @@
 using 'main.bicep'
 
-param parSolution = 'vnet'
+param parDepartment = 'deptTwo'
 param parRegionShortName = 'sec'
 param parLocation = 'swedencentral'
 param parTags = {
-  environment: 'test'
+  Department: 'Two'
 }
-param parVnetAddressPrefix = ['10.0.0.0/24']
+param parVnetAddressPrefix = ['10.0.2.0/24']
 param parSubnets = [
   {
     name: 'frontend-snet'
-    addressPrefix: '10.0.0.0/25'
+    addressPrefix: '10.0.2.0/25'
   }
   {
     name: 'backend-snet'
-    addressPrefix: '10.0.0.128/25'
+    addressPrefix: '10.0.2.128/25'
   }
 ]

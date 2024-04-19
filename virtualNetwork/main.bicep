@@ -1,7 +1,7 @@
 targetScope = 'subscription'
 
 // Parameters
-param parSolution string
+param parDepartment string
 param parRegionShortName string
 param parLocation string
 param parTags object
@@ -10,8 +10,8 @@ param parCustomDNS array = ['168.63.129.16']
 param parVnetAddressPrefix array
 
 // Variables
-var varResourceGroupName = '${parSolution}-${parRegionShortName}-rg'
-var varVirtualNetworkName = '${parSolution}-${parRegionShortName}-vnet'
+var varResourceGroupName = '${parDepartment}-${parRegionShortName}-network-rg'
+var varVirtualNetworkName = '${parDepartment}-${parRegionShortName}-vnet'
 
 // Modules
 module modResourceGroup '../_modules/resourceGroup/resourceGroup.bicep' = {
