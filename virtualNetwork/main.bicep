@@ -10,7 +10,7 @@ param parCustomDNS array = ['168.63.129.16']
 param parVnetAddressPrefix array
 
 // Variables
-var varResourceGroupName = '${parSolutiont}-${parRegionShortName}-network-rg'
+var varResourceGroupName = '${parSolutiont}-${parRegionShortName}-rg'
 var varVirtualNetworkName = '${parSolutiont}-${parRegionShortName}-vnet'
 
 // Modules
