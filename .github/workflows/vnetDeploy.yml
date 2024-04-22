@@ -27,5 +27,5 @@ jobs:
         azcliversion: latest
         inlineScript: |
           az account show
-          az deployment sub create --name 'vNet-Deployment' --location 'swedencentral' --template-file './virtualNetwok/main.bicep' --parameters './virtualNetwok/param.swedencentral.bicepparam'
+          az deployment sub create --name 'vNet-Deployment' --location 'swedencentral' --template-file './virtualNetwork/main.bicep' --parameters './virtualNetwork/param.swedencentral.bicepparam'
    
