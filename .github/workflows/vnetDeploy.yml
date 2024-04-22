@@ -1,6 +1,11 @@
 name: Deploy Virtual Network
 on:
   workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read 
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
