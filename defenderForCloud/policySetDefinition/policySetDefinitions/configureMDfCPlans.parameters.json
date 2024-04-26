@@ -1,0 +1,121 @@
+{
+    "deployDefenderCSPMFullPlans": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('DefenderCSPMEffect')]"
+        },
+        "isSensitiveDataDiscoveryEnabled": {
+          "value": "[[parameters('DefenderCSPMisSensitiveDataDiscoveryEnabled')]"
+        },
+        "isContainerRegistriesVulnerabilityAssessmentsEnabled": {
+          "value": "[[parameters('DefenderCSPMisContainerRegistriesVulnerabilityAssessmentsEnabled')]"
+        },
+        "isAgentlessDiscoveryForKubernetesEnabled": {
+            "value": "[[parameters('DefenderCSPMisAgentlessDiscoveryForKubernetesEnabled')]"
+        },
+        "isAgentlessVmScanningEnabled": {
+            "value": "[[parameters('DefenderCSPMisAgentlessVmScanningEnabled')]"
+        },
+        "isEntraPermissionsManagementEnabled": {
+            "value": "[[parameters('DefenderCSPMisEntraPermissionsManagementEnabled')]"
+        }
+      }
+    },
+    "deployDefenderContainersFullPlans": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('enableDefenderForContainers')]"
+        },
+        "isContainerRegistriesVulnerabilityAssessmentsEnabled": {
+            "value": "[[parameters('DefenderForContainersisContainerRegistriesVulnerabilityAssessmentsEnabled')]"
+          }
+      }
+    },
+    "deployDefenderStorageFullPlans": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('enableDefenderForStorage')]"
+        },
+        "isOnUploadMalwareScanningEnabled": {
+            "value": "[[parameters('DefenderForStorageisOnUploadMalwareScanningEnabled')]"
+          },
+          "capGBPerMonthPerStorageAccount": {
+            "value": "[[parameters('DefenderForStoragecapGBPerMonthPerStorageAccount')]"
+          },
+          "isSensitiveDataDiscoveryEnabled": {
+            "value": "[[parameters('DefenderForStorageisSensitiveDataDiscoveryEnabled')]"
+          }
+      }
+    },
+    "deployDefenderServersFullPlans": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('DefenderForServersEffect')]"
+        },
+        "subPlan": {
+            "value": "[[parameters('DefenderForServersSubPlan')]"
+        },
+        "isAgentlessVmScanningEnabled": {
+            "value": "[[parameters('DefenderForServersisAgentlessVmScanningEnabled')]"
+        },
+        "isMdeDesignatedSubscriptionEnabled": {
+            "value": "[[parameters('DefenderForServersisMdeDesignatedSubscriptionEnabled')]"
+        }
+      }
+    },
+    "deployDefenderSqlServersOnVMs": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('DefenderForSQLServersOnVMEffect')]"
+        }
+      }
+    },
+    "deployDefenderAppServices": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderAppServicesEffect')]"
+        }
+      }
+    },
+    "deployDefenderSqlServers": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderSqlServersEffect')]"
+        }
+      }
+    },
+    "deployDefenderKeyVaults": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderKeyVaultsEffect')]"
+        },
+        "subPlan": {
+            "value": "[[parameters('deployDefenderKeyVaultsSubPlan')]"
+        }
+      }
+    },
+    "deployDefenderArm": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderArmEffect')]"
+        },
+        "subPlan": {
+            "value": "[[parameters('deployDefenderArmSubPlan')]"
+        }
+      }
+    },
+    "deployDefenderOpenSourceRelationalDatabases": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderOpenSourceRelationalDatabasesEffect')]"
+        }
+      }
+    },
+    "deployDefenderCosmosDbs": {
+      "parameters": {
+        "effect": {
+          "value": "[[parameters('deployDefenderCosmosDbsEffect')]"
+        }
+      }
+    }
+  }
